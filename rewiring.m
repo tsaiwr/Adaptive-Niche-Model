@@ -1,4 +1,4 @@
-function [gammaXY,gammaYX,idstart,idend_old,idend_new,gain_old,gamma_old]=rewiring(Type,N,SX,SY,gammaXY,gammaYX,trait,mag_g,sigma_g,trSpan,eta)
+function [gammaXY,gammaYX,idstart,idend_old,idend_new,gain_old,gamma_old]=rewiring(Type,N,SX,SY,gammaXY,gammaYX,trait,int_mut,nw,trSpan,eta)
 
 % rewiring one link
 
@@ -25,7 +25,7 @@ if (Type==0)  % rewiring X->Y
         % rewire to a new species
         gammaXY(idX,idY_old)=0;
         gammaYX(idY_old,idX)=0;
-        gammaXY(idX,idY_new)=mag_g*overlap(trait(idX),trait(SX+idY_new),sigma_g,trSpan);
+        gammaXY(idX,idY_new)=int_mut*overlap(trait(idX),trait(SX+idY_new),nw,trSpan);
         gammaYX(idY_new,idX)=gammaXY(idX,idY_new);
         end
     end    
@@ -57,7 +57,7 @@ else     % rewiring Y->X
         % rewire to a new species
         gammaYX(idY,idX_old)=0;
         gammaXY(idX_old,idY)=0;
-        gammaYX(idY,idX_new)=mag_g*overlap(trait(SX+idY),trait(idX_new),sigma_g,trSpan);
+        gammaYX(idY,idX_new)=int_mut*overlap(trait(SX+idY),trait(idX_new),nw,trSpan);
         gammaXY(idX_new,idY)=gammaYX(idY,idX_new);
         end
     end
