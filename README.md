@@ -1,2 +1,2 @@
 # Adaptive-Niche-Model
-Codes for simulating the adaptive niche model of mutualistic networks.
+The codes presented here are the minimal core for simulating the adaptive niche model of mutualistic networks. 
