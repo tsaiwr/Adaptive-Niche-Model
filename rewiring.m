@@ -1,5 +1,7 @@
 function [gammaXY,gammaYX,idstart,idend_old,idend_new,gain_old,gamma_old]=rewiring(Type,N,SX,SY,gammaXY,gammaYX,trait,mag_g,sigma_g,trSpan,eta)
+
 % rewiring one link
+
 if (Type==0)  % rewiring X->Y
     idX=randi(SX);
     while isempty(find(gammaXY(idX,:),1))  % if idX has no link to Y at all
